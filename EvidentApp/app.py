@@ -6,15 +6,11 @@ from datetime import datetime, timedelta
 from functools import wraps
 import os
 from weasyprint import HTML
-
 from database import get_db_connection
-
-
 
 app = Flask(__name__)
 app.secret_key = 'secret123'
 app.permanent_session_lifetime = timedelta(days=7)
-
 
 def admin_required(f):
     @wraps(f)
@@ -23,6 +19,7 @@ def admin_required(f):
             return "Pristup odbijen", 403
         return f(*args, **kwargs)
     return decorated_function
+
 @app.route('/routes')
 def show_routes():
     return str(app.url_map)
@@ -133,6 +130,7 @@ def register():
             msg = f"Greška u registraciji: {e}"
         return render_template('result.html', msg=msg)
     return render_template('register.html')
+
 @app.route('/travel_orders')
 def travel_orders():
     con = get_db_connection()
@@ -390,7 +388,13 @@ def alter_travel_orders_table():
     conn.commit()
     conn.close()
     
-    
+@app.route('/logout')
+def logout():
+   
+    session.clear()
+  
+    return redirect(url_for('login'))
+  
 @app.route('/summary')
 def summary():
     try:
