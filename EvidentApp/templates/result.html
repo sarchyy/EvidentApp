@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Rezultat
+{% endblock %}
+
+{% block content %}
+    <div class="result-container">
+        <h2>Rezultati iz baze</h2>
+        <div class="result-message">
+            {{ msg }}
+        </div>
+        <a href="/" class="back-link">Nazad na početnu</a>
+    </div>
+{% endblock %}

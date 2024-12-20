@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uredi zaposlenog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Uredi zaposlenog</h2>
+        <form method="POST" action="{{ url_for('edit_employee', id=employee['rowid']) }}">
+            <div class="form-group">
+                <label for="name">Ime i prezime</label>
+                <input type="text" id="name" name="name" value="{{ employee['name'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Datum</label>
+                <input type="date" id="date" name="date" value="{{ employee['date'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="start_time">Vrijeme početka</label>
+                <input type="time" id="start_time" name="start_time" value="{{ employee['start_time'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="end_time">Vrijeme završetka</label>
+                <input type="time" id="end_time" name="end_time" value="{{ employee['end_time'] }}" required>
+            </div>
+            <button type="submit" class="btn">Sačuvaj izmjene</button>
+        </form>
+        <a href="{{ url_for('list_employees') }}" class="btn" style="background: #6c757d;">Nazad</a>
+        
+        <a href="{{ url_for('list_employees') }}" class="btn" style="background: #6c757d;">Nazad</a>
+        
+        <a href="{{ url_for('list_employees') }}" class="btn" style="background: #6c757d;">Nazad</a>
+    </div>
+</body>
+</html>

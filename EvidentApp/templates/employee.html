@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dodaj ili Uredi Radnika</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Evident App</h1>
+        <nav>
+            <a href="/">Početna</a>
+            <a href="/enternew">Dodaj Novog Radnika</a>
+            <a href="/list">Pregled Radnika</a>
+            <a href="/summary">Ukupno</a>
+           
+
+        </nav>
+    </header>
+    <div class="container">
+        <h2>{{ 'Uredi Radnika' if employee else 'Dodaj Novog Radnika' }}</h2>
+        <form action="{{ url_for('edit', rowid=employee['rowid']) if employee else url_for('addrec') }}" method="POST">
+            <label for="nm">Ime i Prezime :</label>
+            <input type="text" id="nm" name="nm" value="{{ employee['name'] if employee else '' }}" required>
+
+            <label for="date">Datum:</label>
+            <input type="date" id="date" name="date" value="{{ employee['date'] if employee else '' }}" required>
+
+            <label for="start_time">Početak Rada:</label>
+            <input type="time" id="start_time" name="start_time"
+                value="{{ employee['start_time'] if employee else '' }}" required>
+
+            <label for="end_time">Kraj Rada:</label>
+            <input type="time" id="end_time" name="end_time" value="{{ employee['end_time'] if employee else '' }}"
+                required>
+
+            <button type="submit">{{ 'Ažuriraj Radnika' if employee else 'Dodaj Radnika' }}</button>
+        </form>
+        <a href="/list" class="back-link">Nazad</a>
+    </div>
+</body>
+
+</html>

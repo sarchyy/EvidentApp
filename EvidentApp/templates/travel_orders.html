@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putni Nalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        .form-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .data-row {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        label {
+            font-weight: bold;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background: #ccc;
+        }
+        .signature, .approval {
+            margin-top: 30px;
+        }
+        .signature p, .approval p {
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            text-align: center;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="title">Nalog za Službeno Putovanje</div>
+        <hr>
+        <form method="POST" action="/travel_order">
+            <div class="data-row">
+                <label for="employee_name">Ime zaposlenika: </label>
+                <input type="text" id="employee_name" name="employee_name" required>
+            </div>
+            <div class="data-row">
+                <label for="contact_info">Kontakt podaci: </label>
+                <input type="text" id="contact_info" name="contact_info" required>
+            </div>
+            <div class="data-row">
+                <label for="destination">Odredište: </label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+            <div class="data-row">
+                <label for="transportation_mode">Način prijevoza: </label>
+                <input type="text" id="transportation_mode" name="transportation_mode" required>
+            </div>
+            <div class="data-row">
+                <label for="start_date">Datum početka putovanja: </label>
+                <input type="date" id="start_date" name="start_date" required>
+            </div>
+            <div class="data-row">
+                <label for="departure_time">Vrijeme polaska: </label>
+                <input type="time" id="departure_time" name="departure_time" required>
+            </div>
+            <div class="data-row">
+                <label for="end_date">Datum završetka putovanja: </label>
+                <input type="date" id="end_date" name="end_date" required>
+            </div>
+            <div class="data-row">
+                <label for="return_time">Vrijeme povratka: </label>
+                <input type="time" id="return_time" name="return_time" required>
+            </div>
+            <div class="data-row">
+                <label for="purpose">Svrha putovanja: </label>
+                <input type="text" id="purpose" name="purpose" required>
+            </div>
+            <div class="data-row">
+                <label for="daily_allowance">Iznos dnevnica: </label>
+                <input type="number" id="daily_allowance" name="daily_allowance" required>
+            </div>
+            <div class="data-row">
+                <label for="advance_payment">Akontacija putnih troškova: </label>
+                <input type="number" id="advance_payment" name="advance_payment" required>
+            </div>
+            <button type="submit" class="btn">Pošaljite Nalog</button>
+        </form>
+    </div>
+    <div class="footer">&copy; 2024 Evident. Sva prava pridržana.</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putni Nalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        .form-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .data-row {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        label {
+            font-weight: bold;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background: #ccc;
+        }
+        .signature, .approval {
+            margin-top: 30px;
+        }
+        .signature p, .approval p {
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="title">Nalog za Službeno Putovanje</div>
+        <hr>
+        <div class="data-row">
+            <label>Ime i prezime zaposlenika: </label> <span>{{ employee_name or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Kontakt podaci: </label> <span>{{ contact_info or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Odredište: </label> <span>{{ destination or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Način prijevoza: </label> <span>{{ transportation_mode or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Datum početka putovanja: </label> <span>{{ start_date or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Vrijeme polaska: </label> <span>{{ departure_time or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Datum završetka putovanja: </label> <span>{{ end_date or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Vrijeme povratka: </label> <span>{{ return_time or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Svrha putovanja: </label> <span>{{ purpose or 'N/A' }}</span>
+        </div>
+        <div class="data-row">
+            <label>Iznos dnevnica: </label> <span>{{ daily_allowance or '0.00' }} KM</span>
+        </div>
+        <div class="data-row">
+            <label>Akontacija putnih troškova: </label> <span>{{ advance_payment or '0.00' }} KM</span>
+        </div>
+        
+        <hr>
+        <div class="approval">
+            <p>Odobreno od strane: ________________________</p>
+            <p>Datum odobrenja: __________________________</p>
+        </div>
+        <hr>
+        <div class="signature">
+            <p>Potpuno odgovorna osoba: ________________________</p>
+        </div>
+    </div>
+    <div class="footer">&copy; 2024 Evident. Sva prava pridržana.</div>
+</body>
+</html>
